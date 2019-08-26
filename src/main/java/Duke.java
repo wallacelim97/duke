@@ -40,7 +40,17 @@ public class Duke {
                 System.out.println("    " + list.get(idx).toString());
                 System.out.println(lnBreak);
             case "todo":
-                String todo = sc.nextLine();
+                String todo = sc.nextLine().trim();
+                try {
+                    if (todo.equals("")) {
+                        throw new DukeException("    ☹ OOPS!!! The description of a todo cannot be empty.");
+                    }
+                } catch (DukeException e) {
+                    System.out.println(lnBreak);
+                    System.out.println(e.toString());
+                    System.out.println(lnBreak);
+                    break;
+                }
                 Task td = new Task('T', todo);
                 list.add(td);
                 System.out.println(lnBreak);
@@ -50,6 +60,17 @@ public class Duke {
                 break;
             case "deadline":
                 String[] dl = sc.nextLine().split("/");
+                try {
+                    if (dl.length == 1) {
+                        throw new DukeException("    ☹ OOPS!!! The description of a todo cannot be empty.");
+                    }
+                } catch (DukeException e) {
+                    System.out.println(lnBreak);
+                    System.out.println(e.toString());
+                    System.out.println(lnBreak);
+                    break;
+                }
+
                 Task deadline = new Task('D', dl[0], dl[1]);
                 list.add(deadline);
                 System.out.println(lnBreak);
@@ -59,6 +80,16 @@ public class Duke {
                 break;
             case "event":
                 String[] ev = sc.nextLine().split("/");
+                try {
+                    if (ev.length == 1) {
+                        throw new DukeException("    ☹ OOPS!!! The description of a todo cannot be empty.");
+                    }
+                } catch (DukeException e) {
+                    System.out.println(lnBreak);
+                    System.out.println(e.toString());
+                    System.out.println(lnBreak);
+                    break;
+                }
                 Task event = new Task('E', ev[0], ev[1]);
                 list.add(event);
                 System.out.println(lnBreak);
@@ -66,6 +97,14 @@ public class Duke {
                 System.out.println("    You now have " + list.size() + " tasks.");
                 System.out.println(lnBreak);
                 break;
+            default:
+                try {
+                    throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
+                } catch (DukeException e) {
+                    System.out.println(lnBreak);
+                    System.out.println(e.toString());
+                    System.out.println(lnBreak);
+                }
             }
         }
     }
