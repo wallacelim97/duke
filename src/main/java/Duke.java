@@ -97,6 +97,15 @@ public class Duke {
                 System.out.println("    You now have " + list.size() + " tasks.");
                 System.out.println(lnBreak);
                 break;
+            case "delete":
+                int i = sc.nextInt() - 1;
+                sc.nextLine();
+                Task t = list.remove(i);
+                System.out.println(lnBreak);
+                System.out.println("    Noted. I've removed this task:");
+                System.out.println("    " + t);
+                System.out.println(lnBreak);
+                break;
             default:
                 try {
                     throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-(");
