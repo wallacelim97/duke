@@ -1,6 +1,10 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Task {
     private String description;
     private String details;
+    private LocalDateTime dateTime;
     private char type;
     private boolean isDone;
 
@@ -14,6 +18,7 @@ public class Task {
         this.description = description;
         this.type = type;
         this.details = details;
+        this.dateTime = LocalDateTime.parse(details, DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm"));
         this.isDone = false;
     }
 
@@ -57,8 +62,10 @@ public class Task {
     public String toString() {
         if (this.details == null) {
             return String.format("[%c][%s] %s", this.type, this.getStatusIcon(), this.description);
+        } else if (this.type == 'E'){
+            return String.format("[%c][%s]%s at %s", this.type, this.getStatusIcon(), this.description, DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm").format(this.dateTime));
         } else {
-            return String.format("[%c][%s]%s%s", this.type, this.getStatusIcon(), this.description, this.details);
+            return String.format("[%c][%s]%s by %s", this.type, this.getStatusIcon(), this.description, DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm").format(this.dateTime));
         }
     }
 }
