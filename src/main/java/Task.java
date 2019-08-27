@@ -17,6 +17,19 @@ public class Task {
         this.isDone = false;
     }
 
+    public Task(char type, boolean done, String description) {
+        this.description = description;
+        this.type = type;
+        this.isDone = done;
+    }
+
+    public Task(char type, boolean done, String description, String details) {
+        this.description = description;
+        this.type = type;
+        this.isDone = done;
+        this.details = details;
+    }
+
     public String getStatusIcon() {
         return (isDone ? "O" : "X"); //return tick or X symbols
     }
@@ -27,6 +40,18 @@ public class Task {
 
     public String getDesc () {
         return this.description;
+    }
+
+    public String getDet () {
+        return this.details;
+    }
+
+    public char getType () {
+        return this.type;
+    }
+
+    public boolean isDone () {
+        return this.isDone;
     }
 
     public String toString() {
