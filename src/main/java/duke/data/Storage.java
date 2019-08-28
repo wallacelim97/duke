@@ -1,12 +1,16 @@
+package duke.data;
+
+import duke.object.Task;
+import duke.object.TaskList;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
-    String filepath;
+    private String filepath;
 
     public Storage(String filepath) {
         this.filepath = filepath;

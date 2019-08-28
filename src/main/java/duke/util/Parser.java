@@ -1,6 +1,9 @@
-import java.io.IOException;
+package duke.util;
 
-class Parser {
+import duke.command.*;
+import duke.exception.DukeException;
+
+public class Parser {
 
     public static Command parse(String input) {
         String[] command = input.split(" ", 2);

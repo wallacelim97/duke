@@ -1,3 +1,11 @@
+package duke.command;
+
+import duke.data.Storage;
+import duke.object.TaskList;
+import duke.object.Task;
+import duke.user.Ui;
+
+
 import java.io.IOException;
 
 public class AddDeadlineCommand extends Command {
@@ -9,14 +17,13 @@ public class AddDeadlineCommand extends Command {
         this.dateTime = dateTime;
     }
 
-    @Override
-    void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
+    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
         ui.confirmDeadlineAdded(tasks.addTask(new Task('D', desc, dateTime)), tasks);
         storage.saveTasks(tasks);
     }
 
     @Override
-    boolean isExit() {
+    public boolean isExit() {
         return false;
     }
 }

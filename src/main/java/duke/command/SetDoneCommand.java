@@ -1,3 +1,9 @@
+package duke.command;
+
+import duke.data.Storage;
+import duke.object.TaskList;
+import duke.user.Ui;
+
 import java.io.IOException;
 
 public class SetDoneCommand extends Command {
@@ -7,13 +13,13 @@ public class SetDoneCommand extends Command {
         this.idx = idx;
     }
     @Override
-    void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
+    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
         ui.confirmDone(tasks.getTask(this.idx).setDone());
         storage.saveTasks(tasks);
     }
 
     @Override
-    boolean isExit() {
+    public boolean isExit() {
         return false;
     }
 }
