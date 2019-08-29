@@ -8,17 +8,17 @@ import duke.user.Ui;
 import java.io.IOException;
 
 public class AddEventCommand extends Command {
-    String desc;
+    String description;
     String dateTime;
 
-    public AddEventCommand(String desc, String dateTime) {
-        this.desc = desc;
+    public AddEventCommand(String description, String dateTime) {
+        this.description = description;
         this.dateTime = dateTime;
     }
 
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
-        ui.confirmEventAdded(tasks.addTask(new Task('E', desc, dateTime)), tasks);
+        ui.confirmEventAdded(tasks.addTask(new Task('E', description, dateTime)), tasks);
         storage.saveTasks(tasks);
     }
 

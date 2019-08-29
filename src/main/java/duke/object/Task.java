@@ -65,7 +65,7 @@ public class Task {
     public String toString() {
         if (this.details == null) {
             return String.format("[%c][%s] %s", this.type, this.getStatusIcon(), this.description);
-        } else if (this.type == 'E'){
+        } else if (this.type == 'E') {
             return String.format("[%c][%s] %s at %s", this.type, this.getStatusIcon(), this.description, DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm").format(this.dateTime));
         } else {
             return String.format("[%c][%s] %s by %s", this.type, this.getStatusIcon(), this.description, DateTimeFormatter.ofPattern("dd-MM-yyyy HHmm").format(this.dateTime));

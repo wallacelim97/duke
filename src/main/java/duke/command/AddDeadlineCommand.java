@@ -5,20 +5,19 @@ import duke.object.TaskList;
 import duke.object.Task;
 import duke.user.Ui;
 
-
 import java.io.IOException;
 
 public class AddDeadlineCommand extends Command {
-    String desc;
+    String description;
     String dateTime;
 
-    public AddDeadlineCommand(String desc, String dateTime) {
-        this.desc = desc;
+    public AddDeadlineCommand(String description, String dateTime) {
+        this.description = description;
         this.dateTime = dateTime;
     }
 
     public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
-        ui.confirmDeadlineAdded(tasks.addTask(new Task('D', desc, dateTime)), tasks);
+        ui.confirmDeadlineAdded(tasks.addTask(new Task('D', description, dateTime)), tasks);
         storage.saveTasks(tasks);
     }
 
