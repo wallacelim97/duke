@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import duke.data.Storage;
 import duke.exception.DukeException;
+import duke.object.Task;
 import duke.object.TaskList;
 import duke.user.Ui;
 import duke.util.Parser;
@@ -52,6 +53,6 @@ public class Duke {
         }
     }
     public static void main(String[] args) {
-        new Duke("C:\\Users\\Admin\\Desktop\\Personal\\School\\Y2S1\\CS2103T\\duke\\src\\main\\java\\data\\tasks.txt").run();
+        new Duke("C:\\Users\\Admin\\OneDrive - National University of Singapore\\School\\Y2S1\\CS2103T\\duke\\src\\main\\java\\data\\tasks.txt").run();
     }
 }

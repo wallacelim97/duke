@@ -53,7 +53,7 @@ public class Storage {
     public void saveTasks(TaskList list) throws IOException {
         FileWriter f = new FileWriter(this.filepath);
         for (Task t : list.getTasks()) {
-            f.write(String.format("%c/%s/%s/%s\n", t.getType(), t.isDone(), t.getDesc(), t.getDet()));
+            f.write(String.format("%c/%s/%s/%s\n", t.getType(), t.isDone(), t.getDescription(), t.getDetails()));
         }
         f.close();
     }

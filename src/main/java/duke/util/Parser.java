@@ -50,6 +50,12 @@ public class Parser {
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
                 return new FaultyCommand(new DukeException("☹ OOPS!!! Please specify which task to delete."));
             }
+        case "find":
+            try {
+                return new FindCommand(command[1]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                return new FaultyCommand(new DukeException("☹ OOPS!!! The description of a todo cannot be empty."));
+            }
         default:
             return new FaultyCommand(new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-("));
         }
