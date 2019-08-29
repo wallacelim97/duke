@@ -9,6 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * This class is responsible for loading previously stored tasks
+ */
 public class Storage {
     private String filepath;
 
@@ -16,6 +19,12 @@ public class Storage {
         this.filepath = filepath;
     }
 
+    /**
+     * Loads previously stored task list
+     *
+     * @return The task list
+     * @throws FileNotFoundException if file cannot be found
+     */
     public TaskList loadTasks () throws FileNotFoundException {
         File f = new File(this.filepath);
         Scanner fs = new Scanner(f);
@@ -34,6 +43,13 @@ public class Storage {
         }
         return list;
     }
+
+    /**
+     * Updates the file where tasks are stored to sync with the latest task list
+     *
+     * @param list User's task list
+     * @throws IOException If file cannot be written over
+     */
     public void saveTasks(TaskList list) throws IOException {
         FileWriter f = new FileWriter(this.filepath);
         for (Task t : list.getTasks()) {

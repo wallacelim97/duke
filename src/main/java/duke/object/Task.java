@@ -3,6 +3,10 @@ package duke.object;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
+/**
+ * Represents a user's task
+ */
 public class Task {
     private String description;
     private String details;

@@ -6,6 +6,9 @@ import duke.object.TaskList;
 
 import java.util.Scanner;
 
+/**
+ * This class is responsible for printing output in the user's console
+ */
 public class Ui {
     Scanner sc = new Scanner(System.in);
     static final String logo = " ____        _        \n"
@@ -15,6 +18,9 @@ public class Ui {
             + "|____/ \\__,_|_|\\_\\___|\n";
     static final String lnBreak = "    ____________________________________________________________";
 
+    /**
+     * Displays a welcome message
+     */
     public void showWelcome() {
         System.out.println("Hello from\n" + logo);
         System.out.println(lnBreak);
@@ -26,6 +32,9 @@ public class Ui {
         return this.sc.nextLine();
     }
 
+    /**
+     * Displays an exit message
+     */
     public void sayBye() {
         System.out.println(lnBreak);
         System.out.println("    Bye. Hope to see you again soon!");

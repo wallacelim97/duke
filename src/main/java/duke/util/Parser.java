@@ -3,8 +3,16 @@ package duke.util;
 import duke.command.*;
 import duke.exception.DukeException;
 
+/**
+ * This class is responsible for parsing user input
+ */
 public class Parser {
 
+    /**
+     * Parses user input and returns a Command object accordingly
+     * @param input User's input
+     * @return appropriate Command object
+     */
     public static Command parse(String input) {
         String[] command = input.split(" ", 2);
         switch (command[0]) {

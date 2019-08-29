@@ -2,6 +2,9 @@ package duke.exception;
 
 import java.util.InputMismatchException;
 
+/**
+ * Exception for when user input is invalid
+ */
 public class DukeException extends InputMismatchException {
     private String message;
 

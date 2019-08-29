@@ -2,6 +2,9 @@ package duke.object;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a user's task list
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 

@@ -9,12 +9,24 @@ import duke.object.TaskList;
 import duke.user.Ui;
 import duke.util.Parser;
 
+/**
+ * A simple chatbot which provides basic to-do-list functions
+ *
+ * @author  Wallace Lim
+ * @version 0.1
+ */
+
 public class Duke {
 
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
 
+    /**
+     * Sole constructor, loads previously stored tasks if available
+     *
+     * @param filePath storage path of previous tasks
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
