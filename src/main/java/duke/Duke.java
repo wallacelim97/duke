@@ -1,14 +1,19 @@
+package duke;
+
 import duke.command.Command;
+import duke.data.Storage;
+import duke.exception.DukeException;
+import duke.object.TaskList;
+import duke.user.Ui;
+import duke.util.Parser;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import duke.data.Storage;
-import duke.exception.DukeException;
-import duke.object.Task;
-import duke.object.TaskList;
-import duke.user.Ui;
-import duke.util.Parser;
 
 /**
  * A simple chatbot which provides basic to-do-list functions
@@ -17,11 +22,20 @@ import duke.util.Parser;
  * @version 0.1
  */
 
-public class Duke {
+public class Duke extends Application {
 
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
+
+    @Override
+    public void start(Stage stage) {
+        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
+        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
+
+        stage.setScene(scene); // Setting the stage to show our screen
+        stage.show(); // Render the stage.
+    }
 
     /**
      * Sole constructor, loads previously stored tasks if available
