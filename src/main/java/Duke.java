@@ -53,6 +53,6 @@ public class Duke {
         }
     }
     public static void main(String[] args) {
-        new Duke("C:\\Users\\Admin\\OneDrive - National University of Singapore\\School\\Y2S1\\CS2103T\\duke\\src\\main\\java\\data\\tasks.txt").run();
+        new Duke("src\\main\\java\\data\\tasks.txt").run();
     }
 }
