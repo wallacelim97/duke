@@ -46,11 +46,11 @@ public class Task {
         return this;
     }
 
-    public String getDesc () {
+    public String getDescription() {
         return this.description;
     }
 
-    public String getDet () {
+    public String getDetails() {
         return this.details;
     }
 
