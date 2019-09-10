@@ -8,8 +8,8 @@ import duke.user.Ui;
 import java.io.IOException;
 
 public class AddEventCommand extends Command {
-    String description;
-    String dateTime;
+    private String description;
+    private String dateTime;
 
     public AddEventCommand(String description, String dateTime) {
         this.description = description;

@@ -41,7 +41,7 @@ public class Task {
         this.details = details;
     }
 
-    public String getStatusIcon() {
+    private String getStatusIcon() {
         return (isDone ? "O" : "X"); //return tick or X symbols
     }
 

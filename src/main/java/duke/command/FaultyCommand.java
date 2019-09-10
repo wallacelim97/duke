@@ -5,17 +5,15 @@ import duke.exception.DukeException;
 import duke.object.TaskList;
 import duke.user.Ui;
 
-import java.io.IOException;
-
 public class FaultyCommand extends Command {
-    DukeException e;
+    private DukeException e;
 
     public FaultyCommand(DukeException e) {
         this.e = e;
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
+    public void execute(TaskList tasks, Ui ui, Storage storage) {
         ui.showError(e);
     }
 
