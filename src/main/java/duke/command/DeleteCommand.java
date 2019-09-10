@@ -7,7 +7,7 @@ import duke.user.Ui;
 import java.io.IOException;
 
 public class DeleteCommand extends Command {
-    int idx;
+    private int idx;
 
     public DeleteCommand(int idx) {
         this.idx = idx;

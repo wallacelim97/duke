@@ -9,7 +9,7 @@ import duke.user.Ui;
 import java.io.IOException;
 
 public class AddTodoCommand extends Command {
-    String todo;
+    private String todo;
 
     public AddTodoCommand(String todo) {
         if (todo.equals("")) {

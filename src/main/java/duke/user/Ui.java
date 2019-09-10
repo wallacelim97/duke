@@ -10,13 +10,13 @@ import java.util.Scanner;
  * This class is responsible for printing output in the user's console
  */
 public class Ui {
-    Scanner sc = new Scanner(System.in);
-    static final String logo = " ____        _        \n"
+    private Scanner sc = new Scanner(System.in);
+    private static final String logo = " ____        _        \n"
             + "|  _ \\ _   _| | _____ \n"
             + "| | | | | | | |/ / _ \\\n"
             + "| |_| | |_| |   <  __/\n"
             + "|____/ \\__,_|_|\\_\\___|\n";
-    static final String lnBreak = "    ____________________________________________________________";
+    private static final String lnBreak = "    ____________________________________________________________";
 
     /**
      * Displays a welcome message
@@ -35,7 +35,7 @@ public class Ui {
     /**
      * Displays an exit message
      */
-    public void sayBye() {
+    public void displayExitMessage() {
         System.out.println(lnBreak);
         System.out.println("    Bye. Hope to see you again soon!");
         System.out.println(lnBreak);
@@ -81,9 +81,10 @@ public class Ui {
         System.out.println(lnBreak);
     }
 
-    public void sayEmptyList() {
+    public void confirmRecur(Task task, int frequency) {
         System.out.println(lnBreak);
-        System.out.println("    ");
+        System.out.println("    Noted. I've set this task to recur every " + frequency + " days:");
+        System.out.println("    " + task);
         System.out.println(lnBreak);
     }
 

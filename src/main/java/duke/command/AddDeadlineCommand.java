@@ -8,8 +8,8 @@ import duke.user.Ui;
 import java.io.IOException;
 
 public class AddDeadlineCommand extends Command {
-    String description;
-    String dateTime;
+    private String description;
+    private String dateTime;
 
     public AddDeadlineCommand(String description, String dateTime) {
         this.description = description;
