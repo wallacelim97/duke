@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class SetDoneCommand extends Command {
-    int idx;
+    private int idx;
 
     public SetDoneCommand(int idx) {
         this.idx = idx;
