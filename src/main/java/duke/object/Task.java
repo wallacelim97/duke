@@ -21,6 +21,7 @@ public class Task {
     }
 
     public Task(char type, String description, String details) {
+        assert details.matches("(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19|20)\\d\\d) (([0-1][0-9]|2[0-4])[0-5][0-9])") : " Invalid DateTime Format";
         this.description = description;
         this.type = type;
         this.details = details;
