@@ -1,5 +1,7 @@
 package duke.object;
 
+import duke.exception.DukeException;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,6 +15,7 @@ public class Task {
     private LocalDateTime dateTime;
     private char type;
     private boolean isDone;
+    private int recur;
 
     public Task(char type, String description) {
         this.description = description;
@@ -50,6 +53,19 @@ public class Task {
         return this;
     }
 
+    public int getRecur() {
+        return this.recur;
+    }
+
+    public Task setRecur(int frequency) {
+        if (this.dateTime == null) {
+            throw new DukeException("Invalid Task for recursion");
+        } else {
+            this.recur = frequency;
+            return this;
+        }
+    }
+
     public String getDescription() {
         return this.description;
     }
@@ -64,6 +80,10 @@ public class Task {
 
     public boolean isDone () {
         return this.isDone;
+    }
+
+    public LocalDateTime getDateTime() {
+        return this.dateTime;
     }
 
     public String toString() {
