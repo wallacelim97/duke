@@ -1,15 +1,6 @@
 package duke.util;
 
-import duke.command.Command;
-import duke.command.AddTodoCommand;
-import duke.command.DeleteCommand;
-import duke.command.ListCommand;
-import duke.command.SetDoneCommand;
-import duke.command.ExitCommand;
-import duke.command.FaultyCommand;
-import duke.command.AddDeadlineCommand;
-import duke.command.AddEventCommand;
-import duke.command.FindCommand;
+import duke.command.*;
 import duke.exception.DukeException;
 
 /**
@@ -63,7 +54,15 @@ public class Parser {
             try {
                 return new FindCommand(command[1]);
             } catch (ArrayIndexOutOfBoundsException e) {
-                return new FaultyCommand(new DukeException("☹ OOPS!!! The description of a todo cannot be empty."));
+                return new FaultyCommand(new DukeException("☹ OOPS!!! The description of a find query cannot be empty."));
+            }
+        case "recur":
+            try {
+                idx = Character.getNumericValue(command[1].charAt(0)) - 1;
+                int frequency = Character.getNumericValue(command[1].charAt(2));
+                return new SetRecurCommand(idx, frequency);
+            } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException e) {
+                return new FaultyCommand(new DukeException("☹ OOPS!!! The description of a recur command cannot be empty."));
             }
         default:
             return new FaultyCommand(new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means :-("));

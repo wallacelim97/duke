@@ -81,6 +81,13 @@ public class Ui {
         System.out.println(lnBreak);
     }
 
+    public void confirmRecur(Task task, int frequency) {
+        System.out.println(lnBreak);
+        System.out.println("    Noted. I've set this task to recur every " + frequency + " days:");
+        System.out.println("    " + task);
+        System.out.println(lnBreak);
+    }
+
     public void showError(DukeException e) {
         System.out.println(e.toString());
         System.out.println(lnBreak);
