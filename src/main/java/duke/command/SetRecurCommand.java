@@ -2,8 +2,9 @@ package duke.command;
 
 import duke.data.Storage;
 import duke.exception.DukeException;
+import duke.object.Task;
 import duke.object.TaskList;
-import duke.user.Ui;
+import duke.user.DukeMessages;
 
 import java.io.IOException;
 
@@ -17,15 +18,15 @@ public class SetRecurCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
+    public String execute(TaskList tasks, DukeMessages ui, Storage storage) throws IOException {
+
         try {
-            System.out.println(tasks.getTask(this.idx));
-            System.out.println(this.frequency);
-            ui.confirmRecur(tasks.getTask(this.idx).setRecur(frequency), frequency);
+            Task task = tasks.getTask(this.idx).setRecur(frequency);
+            storage.saveTasks(tasks);
+            return ui.confirmRecur(task, frequency);
         } catch(DukeException e) {
-            System.out.println("This task cannot recur");
+            return ("This task cannot recur");
         }
-        storage.saveTasks(tasks);
     }
 
     @Override

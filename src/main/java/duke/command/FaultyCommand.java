@@ -3,7 +3,7 @@ package duke.command;
 import duke.data.Storage;
 import duke.exception.DukeException;
 import duke.object.TaskList;
-import duke.user.Ui;
+import duke.user.DukeMessages;
 
 public class FaultyCommand extends Command {
     private DukeException e;
@@ -13,8 +13,8 @@ public class FaultyCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.showError(e);
+    public String execute(TaskList tasks, DukeMessages ui, Storage storage) {
+        return ui.showError(e);
     }
 
     @Override

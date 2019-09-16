@@ -2,13 +2,13 @@ package duke.command;
 
 import duke.data.Storage;
 import duke.object.TaskList;
-import duke.user.Ui;
+import duke.user.DukeMessages;
 
 public class ListCommand extends Command {
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.listTasks(tasks);
+    public String execute(TaskList tasks, DukeMessages ui, Storage storage) {
+        return ui.listTasks(tasks);
     }
 
     @Override

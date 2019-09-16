@@ -1,5 +1,6 @@
-T/false/read books/null
-E/false/reading club /null
-D/false/deadline/null
-D/true/do something/12-12-1990 0900
-D/false/do something/15-12-1990 0900
+D/true/read books/null
+D/true/readbooks/12-12-1993 0900
+D/true/read books again/12-12-1992 1231
+D/true/read books again/15-12-1992 1231
+D/true/read books again/18-12-1992 1231
+D/false/read books again/21-12-1992 1231

@@ -1,8 +1,7 @@
-import duke.command.Command;
+package duke.user;
+
 import duke.data.Storage;
-import duke.exception.DukeException;
 import duke.object.TaskList;
-import duke.user.Ui;
 import duke.util.Parser;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,11 +26,11 @@ import java.io.IOException;
  * @version 0.1
  */
 
-public class Duke extends Application {
+public class DukeUI extends Application {
 
     private Storage storage;
     private TaskList tasks;
-    private Ui ui;
+    private DukeMessages dukeMessages;
     private String filePath = "src\\main\\java\\data\\tasks.txt";
 
     private ScrollPane scrollPane;
@@ -46,8 +45,8 @@ public class Duke extends Application {
      * Sole constructor, loads previously stored tasks if available
      *
      */
-    public Duke() {
-        ui = new Ui();
+    public DukeUI() {
+        dukeMessages = new DukeMessages();
         storage = new Storage(this.filePath);
         try {
             this.tasks = storage.loadTasks();
@@ -126,11 +125,19 @@ public class Duke extends Application {
 
         //Part 3. Add functionality to handle user input.
         sendButton.setOnMouseClicked((event) -> {
-            handleUserInput();
+            try {
+                handleUserInput();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         userInput.setOnAction((event) -> {
-            handleUserInput();
+            try {
+                handleUserInput();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -153,7 +160,7 @@ public class Duke extends Application {
      * Creates two dialog boxes, one echoing user input and the other containing Duke's reply and then appends them to
      * the dialog container. Clears the user input after processing.
      */
-    private void handleUserInput() {
+    private void handleUserInput() throws IOException {
         String userText = userInput.getText();
         String dukeText = getResponse(userInput.getText());
         dialogContainer.getChildren().addAll(
@@ -167,26 +174,27 @@ public class Duke extends Application {
      * You should have your own function to generate a response to user input.
      * Replace this stub with your completed method.
      */
-    String getResponse(String input) {
-        return "Duke heard: " + input;
+    String getResponse(String input) throws IOException {
+
+        return Parser.parse(input).execute(this.tasks, this.dukeMessages, this.storage);
     }
 
-    public void run() {
-        ui.showWelcome();
-        boolean isExit = false;
-        while (!isExit) {
-            try {
-                String fullCommand = ui.readCommand();
-                ui.lnBreak(); // show the divider line ("_______")
-                Command c = Parser.parse(fullCommand);
-                c.execute(tasks, ui, storage);
-                isExit = c.isExit();
-            } catch (DukeException | IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    public static void main(String[] args) {
-        new Duke().run();
-    }
+//    public void run() {
+//        dukeMessages.showWelcome();
+//        boolean isExit = false;
+//        while (!isExit) {
+//            try {
+//                String fullCommand = dukeMessages.readCommand();
+//                dukeMessages.lnBreak(); // show the divider line ("_______")
+//                Command c = Parser.parse(fullCommand);
+//                c.execute(tasks, dukeMessages, storage);
+//                isExit = c.isExit();
+//            } catch (DukeException | IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+//    public static void main(String[] args) {
+//        new DukeUI().run();
+//    }
 }

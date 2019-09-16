@@ -4,7 +4,7 @@ import duke.data.Storage;
 import duke.exception.DukeException;
 import duke.object.Task;
 import duke.object.TaskList;
-import duke.user.Ui;
+import duke.user.DukeMessages;
 
 import java.io.IOException;
 
@@ -19,9 +19,10 @@ public class AddTodoCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
-        ui.confirmTodoAdded(tasks.addTask(new Task('T', this.todo)), tasks);
+    public String execute(TaskList tasks, DukeMessages ui, Storage storage) throws IOException {
+        Task task = tasks.addTask(new Task('T', this.todo));
         storage.saveTasks(tasks);
+        return ui.confirmTodoAdded(task, tasks);
     }
 
     @Override

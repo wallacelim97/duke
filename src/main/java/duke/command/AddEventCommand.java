@@ -3,7 +3,7 @@ package duke.command;
 import duke.data.Storage;
 import duke.object.Task;
 import duke.object.TaskList;
-import duke.user.Ui;
+import duke.user.DukeMessages;
 
 import java.io.IOException;
 
@@ -17,9 +17,10 @@ public class AddEventCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws IOException {
-        ui.confirmEventAdded(tasks.addTask(new Task('E', description, dateTime)), tasks);
+    public String execute(TaskList tasks, DukeMessages ui, Storage storage) throws IOException {
+        Task task = tasks.addTask(new Task('E', description, dateTime));
         storage.saveTasks(tasks);
+        return ui.confirmEventAdded(task, tasks);
     }
 
     @Override

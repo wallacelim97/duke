@@ -15,7 +15,7 @@ public class Task {
     private LocalDateTime dateTime;
     private char type;
     private boolean isDone;
-    private int recur;
+    private int recur = 0;
 
     public Task(char type, String description) {
         this.description = description;
@@ -55,7 +55,7 @@ public class Task {
     }
 
     public int getRecur() {
-        return this.recur;
+        return this.recur > 0 ? this.recur : 0;
     }
 
     public Task setRecur(int frequency) {
