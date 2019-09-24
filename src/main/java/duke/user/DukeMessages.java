@@ -10,18 +10,19 @@ import duke.object.TaskList;
 public class DukeMessages {
     StringBuilder sb;
     DukeUI ui;
-    private static final String logo =
-              "\\      /\\      /     /\\     |       |       \\   /\n"
-            + " \\    /  \\    /     /  \\    |       |        \\ / \n"
-            + "  \\  /    \\  /     /====\\   |       |          |  \n"
-            + "   \\/      \\/     /      \\  |_____  |_____     |  \n";
+    private static final String logo = "=========================================\n\n" +
+              "\\            /\\            /       /\\        |             |             \\     /\n"
+            + "  \\        /    \\        /       /    \\      |             |               \\ / \n"
+            + "    \\    /        \\    /       /------\\    |             |                |  \n"
+            + "      \\/            \\/       /            \\  |_____  |_____     |  \n\n"
+            + "=========================================\n";
 
     /**
      * Displays a welcome message
      */
-    public String showWelcome() {
+    public String getWelcomeText() {
         sb = new StringBuilder();
-        sb.append("Hello from\n" + logo);
+        sb.append("Hello! I'm \n" + logo);
         sb.append("What can I do for you?\n");
         return sb.toString();
     }

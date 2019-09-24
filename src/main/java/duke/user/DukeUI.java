@@ -55,6 +55,10 @@ public class DukeUI extends Application {
 
     }
 
+    public DukeMessages getDukeMessages() {
+        return this.dukeMessages;
+    }
+
     @Override
     public void start(Stage stage) {
 
