@@ -27,4 +27,8 @@ public class AddEventCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return ADD_EVENT_COMMAND_FORMAT;
+    }
 }

@@ -15,4 +15,8 @@ public class ListCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return LIST_COMMAND_FORMAT;
+    }
 }

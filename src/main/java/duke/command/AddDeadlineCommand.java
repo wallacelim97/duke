@@ -26,4 +26,8 @@ public class AddDeadlineCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return ADD_DEADLINE_COMMAND_FORMAT;
+    }
 }

@@ -1,6 +1,0 @@
-D/true/read books/null
-D/true/readbooks/12-12-1993 0900
-D/true/read books again/12-12-1992 1231
-D/true/read books again/15-12-1992 1231
-D/true/read books again/18-12-1992 1231
-D/false/read books again/21-12-1992 1231

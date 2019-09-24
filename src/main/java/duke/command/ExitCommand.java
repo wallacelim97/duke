@@ -15,4 +15,9 @@ public class ExitCommand extends Command {
     public boolean isExit() {
         return true;
     }
+
+
+    public static String getFormat() {
+        return EXIT_COMMAND_FORMAT;
+    }
 }

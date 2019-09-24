@@ -37,7 +37,7 @@ public class TaskList {
         this.tasks.get(idx).setDone();
     }
 
-    public Task delete(int idx) {
+    public Task delete(int idx) throws IndexOutOfBoundsException {
         return this.tasks.remove(idx);
     }
 
@@ -46,6 +46,6 @@ public class TaskList {
         for (int i = 1; i <= this.tasks.size(); i++) {
             ls.append(String.format("    %d. %s\n", i, this.tasks.get(i - 1)));
         }
-        return ls.toString();
+        return ls.toString().equals("") ? "Your task list is empty.\n" : ls.toString();
     }
 }

@@ -33,4 +33,8 @@ public class SetRecurCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return SET_RECUR_COMMAND_FORMAT;
+    }
 }

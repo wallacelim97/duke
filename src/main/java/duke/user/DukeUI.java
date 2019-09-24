@@ -15,7 +15,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
@@ -50,9 +49,10 @@ public class DukeUI extends Application {
         storage = new Storage(this.filePath);
         try {
             this.tasks = storage.loadTasks();
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
     }
 
     @Override
@@ -80,7 +80,7 @@ public class DukeUI extends Application {
         stage.show();
 
         //Step 2. Formatting the window to look as expected
-        stage.setTitle("Duke");
+        stage.setTitle("Wally");
         stage.setResizable(false);
         stage.setMinHeight(600.0);
         stage.setMinWidth(400.0);
@@ -139,6 +139,10 @@ public class DukeUI extends Application {
                 e.printStackTrace();
             }
         });
+
+        dialogContainer.getChildren().addAll(
+                DialogBox.getDukeDialog(dukeMessages.showWelcome(), duke)
+        );
     }
 
     /**
@@ -148,7 +152,6 @@ public class DukeUI extends Application {
      * @return a label with the specified text that has word wrap enabled.
      */
     private Label getDialogLabel(String text) {
-        // You will need to import `javafx.scene.control.Label`.
         Label textToAdd = new Label(text);
         textToAdd.setWrapText(true);
 
@@ -178,23 +181,4 @@ public class DukeUI extends Application {
 
         return Parser.parse(input).execute(this.tasks, this.dukeMessages, this.storage);
     }
-
-//    public void run() {
-//        dukeMessages.showWelcome();
-//        boolean isExit = false;
-//        while (!isExit) {
-//            try {
-//                String fullCommand = dukeMessages.readCommand();
-//                dukeMessages.lnBreak(); // show the divider line ("_______")
-//                Command c = Parser.parse(fullCommand);
-//                c.execute(tasks, dukeMessages, storage);
-//                isExit = c.isExit();
-//            } catch (DukeException | IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//    public static void main(String[] args) {
-//        new DukeUI().run();
-//    }
 }

@@ -29,4 +29,8 @@ public class SetDoneCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return SET_DONE_COMMAND_FORMAT;
+    }
 }

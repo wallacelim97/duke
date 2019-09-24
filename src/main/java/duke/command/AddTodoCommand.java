@@ -29,4 +29,8 @@ public class AddTodoCommand extends Command {
     public boolean isExit() {
         return false;
     }
+
+    public static String getFormat() {
+        return ADD_TODO_COMMAND_FORMAT;
+    }
 }

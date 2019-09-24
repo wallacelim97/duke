@@ -25,9 +25,12 @@ public class Storage {
      * @return The task list
      * @throws FileNotFoundException if file cannot be found
      */
-    public TaskList loadTasks () throws FileNotFoundException {
-        File f = new File(this.filepath);
-        Scanner fs = new Scanner(f);
+    public TaskList loadTasks () throws IOException {
+        File file = new File(this.filepath);
+        if (!file.isFile()) {
+            file.createNewFile();
+        }
+        Scanner fs = new Scanner(file);
         TaskList list = new TaskList();
         while(fs.hasNextLine()) {
             String[] task = fs.nextLine().split("/");
