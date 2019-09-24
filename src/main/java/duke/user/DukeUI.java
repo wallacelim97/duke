@@ -139,10 +139,6 @@ public class DukeUI extends Application {
                 e.printStackTrace();
             }
         });
-
-        dialogContainer.getChildren().addAll(
-                DialogBox.getDukeDialog(dukeMessages.showWelcome(), duke)
-        );
     }
 
     /**
