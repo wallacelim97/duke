@@ -4,7 +4,6 @@ import duke.object.Task;
 import duke.object.TaskList;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -23,28 +22,29 @@ public class Storage {
      * Loads previously stored task list
      *
      * @return The task list
-     * @throws FileNotFoundException if file cannot be found
      */
-    public TaskList loadTasks () throws IOException {
-        File file = new File(this.filepath);
-        if (!file.isFile()) {
+    public TaskList loadTasks () {
+        try {
+            File file = new File(this.filepath);
             file.createNewFile();
-        }
-        Scanner fs = new Scanner(file);
-        TaskList list = new TaskList();
-        while(fs.hasNextLine()) {
-            String[] task = fs.nextLine().split("/");
-            char type = task[0].charAt(0);
-            boolean done = task[1].equals("true");
-            String desc = task[2];
-            if (type == 'e' || type == 'd') {
-                String det = task[3];
-                list.addTask(new Task(type, done, desc, det));
-            } else {
-                list.addTask(new Task(type, done, desc));
+            Scanner fs = new Scanner(file);
+            TaskList list = new TaskList();
+            while (fs.hasNextLine()) {
+                String[] task = fs.nextLine().split("/");
+                char type = task[0].charAt(0);
+                boolean done = task[1].equals("true");
+                String desc = task[2];
+                if (type == 'e' || type == 'd') {
+                    String det = task[3];
+                    list.addTask(new Task(type, done, desc, det));
+                } else {
+                    list.addTask(new Task(type, done, desc));
+                }
             }
+            return list;
+        } catch (IOException e) {
+            return new TaskList();
         }
-        return list;
     }
 
     /**

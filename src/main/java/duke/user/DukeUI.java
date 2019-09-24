@@ -30,7 +30,7 @@ public class DukeUI extends Application {
     private Storage storage;
     private TaskList tasks;
     private DukeMessages dukeMessages;
-    private String filePath = "src\\main\\java\\data\\tasks.txt";
+    private String filePath = "tasks.txt";
 
     private ScrollPane scrollPane;
     private VBox dialogContainer;
@@ -47,12 +47,7 @@ public class DukeUI extends Application {
     public DukeUI() {
         dukeMessages = new DukeMessages();
         storage = new Storage(this.filePath);
-        try {
-            this.tasks = storage.loadTasks();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        this.tasks = storage.loadTasks();
     }
 
     public DukeMessages getDukeMessages() {
